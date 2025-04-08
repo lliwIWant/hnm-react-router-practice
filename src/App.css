@@ -120,3 +120,7 @@
   }
 }
 
+.search-area > input:focus{
+  border-bottom: 2px solid #CD0118;
+}
+
