@@ -1,9 +1,20 @@
 
-
+@font-face {
+  font-family: '양진체';
+  src: url('https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  margin: 0; box-sizing: border-box;
+  font-family: '양진체';
+  font-weight: normal;
+}
 .login-button{
   display: flex;
   justify-content: flex-end;
   margin: 20px;
+  
 }
 .loginIcon{
   margin-right: 10px;
@@ -11,7 +22,14 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrap{
+  min-width: 90px;
+  width: auto;
 }
 .login-button> div{
   color:#CD0118;
@@ -27,7 +45,9 @@
   position: relative;
   overflow: hidden;
 }
-
+.nav-section >img{
+  cursor: pointer;
+}
 .nav-section::before {
   content: "";
   position: absolute;
@@ -124,3 +144,103 @@
   border-bottom: 2px solid #CD0118;
 }
 
+/* card 요소 */
+.productCardImage-wrap{
+  margin: 5px;
+  cursor: pointer;
+  perspective: 1000px;/* 3d */
+
+  width: 100%;
+  height: 580px;
+  /* height: auto; */
+  margin: 10px 0;
+}
+.productCardImage-wrap img{
+  object-fit: contain;
+  width: 100%;
+}
+.product-infoText{
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 10px 0;
+}
+.choice{font-size: 12px; color:#CD0118;}
+.card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.productCardImage-wrap:hover .card-inner{
+  transform: rotateY(180deg) scale(1.05) translateY(-8px);
+}
+
+.card-front,.card-back{
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  backface-visibility: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+.card-front{background: white;}
+.card-back{
+  background: rgb(117, 115, 110);  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-repeat: no-repeat;
+}
+.card-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color:white;
+  font-weight: bold;
+}
+
+
+/* 로그인 페이지 */
+.loginTitle{
+  color: #CD0118;
+  margin: 20px 0 50px;
+}
+.login-container{
+  margin: 20px 0;
+
+  max-width: 600px !important;
+  border: 2px solid #cccccc45;
+  border-radius: 5px;
+  padding: 35px 10px;
+  box-shadow: 0 0 10px #ffc508;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* .emailInput, .passwordInput{width: 90% !important;} */
+
+.login-form{
+  width: 80%;
+}
+.btn-area{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
