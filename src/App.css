@@ -1,4 +1,5 @@
 
+*{margin:0}
 @font-face {
   font-family: '양진체';
   src: url('https://fastly.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
@@ -109,14 +110,16 @@
 }
 
 .search-area{
-  position: absolute;
-  right: 50px;
+  /* position: absolute; */
+  /* right: 50px; */
 
   height: 100%;
   /* width: 50px; */
   display: flex;
   align-items: center;
   overflow: hidden;
+
+  margin-right: 30px;
 }
 .icon{cursor: pointer; padding-right: 10px; color: #CD0118;}
 .search-area > input {
@@ -243,4 +246,72 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+
+
+/* 상세페이지 */
+.product-img{
+  display: flex;
+  justify-content: flex-end;
+}
+.product-img>img{
+  width: 400px;
+}
+.productDetailTitle{
+  font-size: 30px;
+  margin: 10px 0;
+}
+.dropdown-color{color: white !important;}
+#product-detail-btn{
+  background-color: #CD0118;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  padding: 5px 0;
+  width: 350px;
+  margin-top: 100px;
+}
+
+#product-detail-btn:active{
+  border: 1px solid #CD0118;
+  background-color: white;
+  color: black;
+}
+.mark-area{
+  margin: 30px 0;
+  display: flex;
+}
+.mark-area>div{
+  background-color: black; border-radius: 50px;
+  min-width: 15px;
+  width: auto;
+  max-width: 200px;
+  height:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 5px;
+  margin-right: 5px;
+
+  font-size: 12px;
+  font-weight: lighter;
+}
+.price-area{font-size: 25px;}
+.dropdown-area{
+  margin: 10px 0;
+}
+
+
+/* 모바일 */
+@media screen and (max-width: 768px) {
+
+  .search-area > input{width: 180px;}
+
+  .menu-list{flex-wrap: wrap;  width: 450px;}
+
+  .card-front{height: 500px; }
+  .card-front>img{width: 300px; margin: auto;}
+  .card-inner{}
 }

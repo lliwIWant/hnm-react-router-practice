@@ -16,12 +16,30 @@ const Navbar = ({authenticate,setAuthenticate}) => {
     }
     const goToLogout =()=>{
         setAuthenticate(false);
-        navigate("/login");
+        navigate("/");
+    }
+
+    const search = (e) =>{
+        if(e.key ==="Enter"){
+            // console.log("we click this key", event.key);
+            // 입력한 검색어를 읽어와서
+            let keyword = e.target.value
+            console.log(keyword);
+            //url을 바꿔준다.
+
+            navigate(`/?q=${keyword}`);
+            
+        }
+        console.log('asdfasdf')
     }
   return (
     <div>
         <div>
             <div className="login-button">
+            <div className='search-area'>
+                 <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'/>
+                 <input type="text" onKeyUp={(e)=>{search(e)}}/>
+            </div>
                 {authenticate?(
                     <div className='login-wrap' onClick={goToLogout} >
                            <div className='loginIcon' >
@@ -52,10 +70,10 @@ const Navbar = ({authenticate,setAuthenticate}) => {
                     )
                 )}
             </ul>
-            <div className='search-area'>
+            {/* <div className='search-area'>
                  <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'/>
-                 <input type="text"/>
-            </div>
+                 <input type="text" onKeyUp={(e)=>{search(e)}}/>
+            </div> */}
         </div>
     </div>
   )
