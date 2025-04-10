@@ -306,12 +306,23 @@
 
 /* 모바일 */
 @media screen and (max-width: 768px) {
-
-  .search-area > input{width: 180px;}
+  .body,html{overflow-x: hidden; width: 100%;}
+  .search-area > input{width: 150px;}
 
   .menu-list{flex-wrap: wrap;  width: 450px;}
 
-  .card-front{height: 500px; }
-  .card-front>img{width: 300px; margin: auto;}
-  .card-inner{}
+  .card-front>img{width: 100%; margin: auto;}
+  .card-inner{height: 100%; min-height: auto;}
+  .productCardImage-wrap{height: 635px;  min-height: 660px; max-height: 1600px;}
+  .product-img{display: flex;justify-content: center;}
+  .product-img>img{width: 320px;
+    /* margin: 0 20px; */
+  }
+  .productDetailSection {display: flex; justify-content: center; align-items: center; flex-direction: column;}
+  .productDetailSection>div{width: 320px; }
+  #product-detail-btn{width: 320px;
+    margin: 10px 0;
+  }
+  .login-container{width: 330px !important;}
+  .login-wrap{padding: 0 5px;}
 }
