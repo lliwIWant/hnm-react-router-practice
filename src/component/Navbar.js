@@ -1,6 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 const Navbar = ({authenticate,setAuthenticate}) => {
@@ -30,16 +31,31 @@ const Navbar = ({authenticate,setAuthenticate}) => {
             navigate(`/?q=${keyword}`);
             
         }
-        console.log('asdfasdf')
+        // console.log('asdfasdf')
+    }
+    const siedMenu = ()=>{
+        console.log("asdf");
+        document.querySelector(".menuBack").classList.toggle("active");
+        document.querySelector(".menuSlide").classList.toggle("active");
+
+    }
+    const clickBack = ()=>{
+        
+
+        
+        document.querySelector(".menuBack").classList.toggle("active");
+        document.querySelector(".menuSlide").classList.toggle("active");
+
     }
   return (
     <div>
         <div>
+            
             <div className="login-button">
-            <div className='search-area'>
-                 <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'/>
-                 <input type="text" onKeyUp={(e)=>{search(e)}}/>
-            </div>
+                <div className='search-area'>
+                        <FontAwesomeIcon icon={faMagnifyingGlass} className='icon'/>
+                        <input type="text" onKeyUp={(e)=>{search(e)}}/>
+                </div>
                 {authenticate?(
                     <div className='login-wrap' onClick={goToLogout} >
                            <div className='loginIcon' >
@@ -59,7 +75,19 @@ const Navbar = ({authenticate,setAuthenticate}) => {
         </div>
 
         <div className='nav-section' >
+            <div className='menu-btn' onClick={siedMenu}><FontAwesomeIcon icon={faBars} /></div>
             <img width={100} onClick={goToHome}  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/H%26M-Logo.svg/1064px-H%26M-Logo.svg.png"/>    
+        </div>
+        <div className='menuBack' onClick={clickBack}>
+            <div className='menuSlide' onClick={e => e.stopPropagation()}>
+                <ul className='side'>
+                    {menuList.map(menu=>(
+                            
+                            <li>{menu}</li>
+                        )
+                    )}
+                </ul>
+            </div>
         </div>
 
         <div className='menu-area'>
